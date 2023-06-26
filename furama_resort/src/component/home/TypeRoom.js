@@ -1,44 +1,6 @@
 export function TypeRoom() {
     return (
         <>
-            <div
-                className="vc_row wpb_row vc_row-fluid overflowUnset vc_custom_1533119100314 vc_row-has-fill"
-                style={{
-                    position: "relative",
-                    left: 0,
-                    boxSizing: "border-box",
-                    width: 906,
-                    paddingLeft: 0,
-                    paddingRight: 0
-                }}
-            >
-                <div className="wpb_column vc_column_container vc_col-sm-12">
-                    <div className="vc_column-inner ">
-                        <div className="wpb_wrapper">
-                            <div className="vc_empty_space" style={{height: 102}}>
-                                <span className="vc_empty_space_inner"/>
-                            </div>
-                            <h2
-                                style={{
-                                    fontSize: 40,
-                                    color: "#ffffff",
-                                    textAlign: "center",
-                                    fontFamily: "Playfair Display",
-                                    fontWeight: 700,
-                                    fontStyle: "normal"
-                                }}
-                                className="vc_custom_heading"
-                            >
-                                LOẠI PHÒNG
-                            </h2>
-                            <div className="vc_empty_space" style={{height: 102}}>
-                                <span className="vc_empty_space_inner"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div className="container-fluid">
                 <div className="row">
                     <div className="container">

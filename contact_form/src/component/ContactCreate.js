@@ -17,7 +17,8 @@ export function ContactCreate() {
                 validationSchema={Yup.object(
                     {
                         name: Yup.string().required("Can't be blank"),
-                        email: Yup.string().required("Can't be blank").matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/),
+                        email: Yup.string().required("Can't be blank").matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,"Email must have @ and .xxx . extension"
+                           ),
                         phone: Yup.number("Must be numeric").required("Can't be blank").min(10).max(11),
                         message: Yup.string().required("Can't be blank")
                     }
