@@ -18,7 +18,7 @@ export function ContactCreate() {
                     {
                         name: Yup.string().required("Can't be blank"),
                         email: Yup.string().required("Can't be blank").matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/),
-                        phone: Yup.string().required("Can't be blank"),
+                        phone: Yup.number("Must be numeric").required("Can't be blank").min(10).max(11),
                         message: Yup.string().required("Can't be blank")
                     }
                 )}

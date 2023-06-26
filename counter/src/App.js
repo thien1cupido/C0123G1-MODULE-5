@@ -1,14 +1,15 @@
 import './App.css';
 import React from "react";
-import {CounterComponent1, CounterComponent2} from "./component/CounterComponet";
+import {CounterComponentOdd,} from "./component/CounterComponentOdd";
+import {CounterComponentEven} from "./component/CounterComponentEven";
 
 function App() {
-  return (
-    <div className="App">
-      <CounterComponent1/>
-      <CounterComponent2/>
-    </div>
-  );
+    return (
+        <>
+            <CounterComponentOdd/>
+            <CounterComponentEven/>
+        </>
+    );
 }
 
 export default App;
