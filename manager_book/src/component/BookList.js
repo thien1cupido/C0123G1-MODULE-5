@@ -6,19 +6,19 @@ import {NavLink} from "react-router-dom";
 import {toast} from "react-toastify";
 
 export function BookList() {
-    const [bookList, setListBook] = useState([])
+    const [bookList, setListBook] = useState([]);
     const fetchApi = async () => {
-        const result = await bookService.findAll()
-        setListBook(result)
+        const result = await bookService.findAll();
+        setListBook(result);
     }
     const handleDeleteBook = async (id) => {
-        await bookService.deleteBook(id)
-        fetchApi()
+        await bookService.deleteBook(id);
+        fetchApi();
         toast("Delete successfully!!");
     }
 
     useEffect(() => {
-            fetchApi()
+            fetchApi();
         }, []
     )
     return (

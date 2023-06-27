@@ -1,0 +1,58 @@
+{
+  "customerList": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn A",
+      "birthOfDay": "11/11/2001",
+      "gender": "0",
+      "citizenIdentification": "232635408",
+      "phoneNumber": "0312456325",
+      "email": "nguyenvana1@gmail.com",
+      "customerType": "vip",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn C",
+      "birthOfDay": "11/11/2001",
+      "gender": "0",
+      "citizenIdentification": "232635408",
+      "phoneNumber": "0312456325",
+      "email": "nguyenvana1@gmail.com",
+      "customerType": "vip",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Văn B",
+      "birthOfDay": "11/11/2001",
+      "gender": "1",
+      "citizenIdentification": "232635408",
+      "phoneNumber": "0312456325",
+      "email": "nguyenvana1@gmail.com",
+      "customerType": "vip",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Văn A",
+      "birthOfDay": "11/11/2001",
+      "gender": "0",
+      "citizenIdentification": "232635408",
+      "phoneNumber": "0312456325",
+      "email": "nguyenvana1@gmail.com",
+      "customerType": "vip",
+      "address": "Đà Nẵng"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
