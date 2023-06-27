@@ -1,0 +1,14 @@
+{
+  "bookList": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "quantity": "22"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "quantity": "122"
+    }
+  ]
+}

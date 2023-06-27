@@ -1,12 +1,20 @@
 import React from "react";
-import 'bootstrap/dist/js/bootstrap'
 import {Home} from "./component/home/Home";
-import {Admin} from "./component/admin/Admin";
+import './App.css'
+import {AdminFurama} from "./component/admin/AdminFurama";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
 
 function App() {
     return (
         <>
-          <Admin/>
+
+            <AdminFurama/>
+            {/*<Home/>*/}
+
+            <ToastContainer/>
         </>
     );
 }

@@ -44,9 +44,9 @@ export class Todo extends Component {
                         <tbody>
                         {
                             this.state.todoList.map((todo, index) => (
-                                <tr>
+                                <tr  key={index}>
                                     <td>{index + 1}</td>
-                                    <td key={index}>
+                                    <td>
                                         {todo}
                                     </td>
                                 </tr>

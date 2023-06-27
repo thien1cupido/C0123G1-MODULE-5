@@ -28,19 +28,28 @@ export function Header() {
                             </div>
                             <div className="col-sm-3 d-none d-lg-block">
                                 <div className="header-contact d-flex">
-                                    <div className="header-contact-icon">
-                                        <i className="icon-telephone"/>
-                                    </div>
+                                    <div className="header-contact-icon"><i className="icon-placeholder"></i></div>
                                     <div className="header-contact-txt">
-                                        <p className="txt-lg">84-236-3847 333/888</p>
+                                        <p>
+                                            103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà
+                                            Nẵng, Việt Nam </p><p className="txt-sm">
+                                        <span>7.0 km</span> từ Sân bay Quốc tế Đà Nẵng </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-3 d-none d-lg-block">
+                                <div className="header-contact d-flex">
+                                    <div className="header-contact-icon"><i className="icon-telephone"></i></div>
+                                    <div className="header-contact-txt">
+                                        <p className="txt-lg">
+                                            84-236-3847 333/888 </p>
                                     </div>
                                 </div>
                                 <div className="header-contact d-flex">
-                                    <div className="header-contact-icon">
-                                        <i className="icon-closed-envelope"/>
-                                    </div>
+                                    <div className="header-contact-icon"><i className="icon-closed-envelope"></i></div>
                                     <div className="header-contact-txt">
-                                        <a href="#"> reservation@furamavietnam.com </a>
+                                        <a href="mailto:reservation@furamavietnam.com">
+                                            reservation@furamavietnam.com </a>
                                     </div>
                                 </div>
                             </div>

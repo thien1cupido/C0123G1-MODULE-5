@@ -19,7 +19,7 @@ export function ContactCreate() {
                         name: Yup.string().required("Can't be blank"),
                         email: Yup.string().required("Can't be blank").matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,"Email must have @ and .xxx . extension"
                            ),
-                        phone: Yup.number("Must be numeric").required("Can't be blank").min(10).max(11),
+                        phone: Yup.string().required("Can't be blank").matches(/^[0,+84][0-9]{9,10}$/,"Must be numeric and begin 0 or +84"),
                         message: Yup.string().required("Can't be blank")
                     }
                 )}
