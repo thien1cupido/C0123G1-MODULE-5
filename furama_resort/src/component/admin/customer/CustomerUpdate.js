@@ -1,9 +1,9 @@
-import * as bookService from "../../../service/CustomerService";
+import * as customerService from "../../../service/CustomerService";
 
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {toast} from "react-toastify";
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {TailSpin} from "react-loader-spinner";
 
@@ -11,6 +11,14 @@ export function CustomerUpdate() {
     const [customer, setCustomer] = useState(null);
     const navigate = useNavigate();
     const param = useParams();
+    useEffect(()=>{
+        const fetchCustomer=async ()=>{
+            const result=await customerService.findCustomerById(param.id)
+            console.log(result)
+            setCustomer(result)
+        }
+        fetchCustomer()
+    },[])
     if (!customer) {
         return null;
     }
@@ -41,12 +49,12 @@ export function CustomerUpdate() {
 
                     onSubmit={(values, {setSubmitting}) => {
                         setSubmitting(false)
-                        const create = async () => {
-                            await bookService.updateCustomer(values)
+                        const updateCustomer = async () => {
+                            await customerService.updateCustomer(values)
                             navigate("/customer/list")
                             toast(`Sửa thành công khách hàng ${customer.name} !!`)
                         }
-                        create()
+                        updateCustomer()
                     }}
             >{
                 ({isSubmitting}) => (
@@ -87,8 +95,8 @@ export function CustomerUpdate() {
                                     </div>
                                     <div>
                                         <label className="form-label">Loại khách hàng</label>
-                                        <Field type="text" name="quantity" className="form-control"/>
-                                        <ErrorMessage component="customerType" style={{color: 'red'}} name="customerType"/>
+                                        <Field type="text" name="customerType" className="form-control"/>
+                                        <ErrorMessage component="span" style={{color: 'red'}} name="customerType"/>
                                     </div>
                                     <div>
                                         <label className="form-label">Địa chỉ</label>

@@ -12,7 +12,6 @@ return(
         <HeaderAdmin/>
         <ServiceCreate/>
         {/*<ServiceList/>*/}
-        <ToastContainer/>
     </>
 )
 }
