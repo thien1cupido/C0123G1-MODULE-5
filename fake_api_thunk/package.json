@@ -1,5 +1,5 @@
 {
-  "name": "api-client",
+  "name": "redux-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,11 +14,15 @@
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.2",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4",
-    "yup": "^1.0.2"
+    "yup": "^1.0.2",
+    "sweetalert2": "^11.7.12"
   },
   "scripts": {
     "json-server": "json-server -p 8080 -w db.json",
@@ -44,8 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "date-fns": "^2.30.0"
   }
 }
