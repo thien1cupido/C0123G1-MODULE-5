@@ -1,70 +1,61 @@
-import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import * as customerService from "../../../service/CustomerService";
+import * as contractService from "../../../service/ContractService";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
+import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {TailSpin} from "react-loader-spinner";
 
-function ContractCreate() {
-    const [contract, setContract] = useState([]);
+export function ContractCreate() {
+    const navigate=useNavigate()
     return (
         <>
             <Formik initialValues={{
-                name: '',
-                birthOfDay: '',
-                gender: '',
-                citizenIdentification: '',
-                phoneNumber: '',
-                email: '',
-                customerType: '',
-                address: ''
+                customer: '',
+                facility: '',
+                startDayContract: '',
+                endDayContract: '',
+                deposits: ''
             }}
                     validationSchema={Yup.object({
-                        name: Yup.string().required("Không được để trống"),
-                        birthOfDay: Yup.string().required("Không được để trống"),
-                        gender: Yup.string().required("Không được để trống"),
-                        citizenIdentification: Yup.string().required("Không được để trống"),
-                        phoneNumber: Yup.string().required("Không được để trống"),
-                        email: Yup.string().required("Không được để trống"),
-                        customerType: Yup.string(),
-                        address: Yup.string().required("Không được để trống")
+                        startDayContract: Yup.string().required("Không được để trống"),
+                        endDayContract: Yup.string().required("Không được để trống"),
+                        deposits: Yup.string().required("Không được để trống")
                     })}
 
                     onSubmit={(values, {setSubmitting}) => {
                         setSubmitting(false)
-                        const createCustomer = async () => {
-                            await customerService.save(values)
-                            navigate("/customer/list")
+                        const createContract = async () => {
+                            await contractService.save(values)
+                            navigate("/contract/list")
                             toast(`Tạo hợp đồng thành công !!`)
                         }
-                        createCustomer()
+                        createContract()
                     }}
             >{
                 ({isSubmitting}) => (
                     <div className="container">
                         <div style={{height: '15vh'}}></div>
                         <div className="row d-flex justify-content-center">
-                            <div className="col-xxl-5">
+                            <div className="col-xxl-3">
                                 <Form>
                                     <h1 className="text-center">Tạo hợp đồng</h1>
                                     <div className="mt-3">
-                                        <label className="form-label">Số hợp đồng <span
-                                            style={{color: 'red', fontSize: 'large'}}>*</span></label>
-                                        <Field type="text" name="name" className="form-control"/>
-                                        <ErrorMessage component="span" style={{color: 'red'}} name="name"/>
-                                    </div>
-                                    <div className="mt-3">
                                         <label className="form-label">Ngày bắt đầu <span
                                             style={{color: 'red', fontSize: 'large'}}>*</span></label>
-                                        <Field type="text" name="name" className="form-control"/>
-                                        <ErrorMessage component="span" style={{color: 'red'}} name="name"/>
+                                        <Field type="date" name="startDayContract" className="form-control"/>
+                                        <ErrorMessage component="span" style={{color: 'red'}} name="startDayContract"/>
+                                    </div>
+                                    <div className="mt-3">
+                                        <label className="form-label">Ngày kết thúc <span
+                                            style={{color: 'red', fontSize: 'large'}}>*</span></label>
+                                        <Field type="date" name="endDayContract" className="form-control"/>
+                                        <ErrorMessage component="span" style={{color: 'red'}} name="endDayContract"/>
                                     </div>
                                     <div className="mt-3">
                                         <label className="form-label">Số tiền cọc trước <span
                                             style={{color: 'red', fontSize: 'large'}}>*</span></label>
-                                        <Field type="text" name="name" className="form-control"/>
-                                        <ErrorMessage component="span" style={{color: 'red'}} name="name"/>
+                                        <Field type="text" name="deposits" className="form-control"/>
+                                        <ErrorMessage component="span" style={{color: 'red'}} name="deposits"/>
                                     </div>
                                     {
                                         isSubmitting ?
