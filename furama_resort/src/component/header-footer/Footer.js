@@ -1,75 +1,138 @@
+import 'bootstrap/dist/css/bootstrap.css'
+
 export function Footer() {
     return (
-        <>
-            <div className="container-fluid mt-5">
-                <div className="card mx-5">
-                    <div className="row mb-4 ">
-                        <div className="col-md-4 col-sm-11 col-xs-11">
-                            <div className="footer-text pull-left">
-                                <div className="d-flex">
-                                    <h1 className="font-weight-bold mr-2 px-3"
-                                        style="color:#16151a; background-color:#957bda"> T </h1>
-                                    <h1 style="color: #957bda">Devs</h1>
-                                </div>
-                                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Commodi non pariatur numquam animi nam at impedit odit nisi.</p>
-                                <div className="social mt-2 mb-3">
-                                    <i className="fa fa-facebook-official fa-lg"></i>
-                                    <i className="fa fa-instagram fa-lg"></i>
-                                    <i className="fa fa-twitter fa-lg"></i>
-                                    <i className="fa fa-linkedin-square fa-lg"></i>
-                                    <i className="fa fa-facebook"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
-                        <div className="col-md-2 col-sm-4 col-xs-4">
-                            <h5 className="heading">Services</h5>
-                            <ul>
-                                <li>IT Consulting -</li>
-                                <li>Development</li>
-                                <li>Cloud</li>
-                                <li>DevOps & Support</li>
-                            </ul>
-                        </div>
-                        <div className="col-md-2 col-sm-4 col-xs-4">
-                            <h5 className="heading">Industries</h5>
-                            <ul className="card-text">
-                                <li>Finance</li>
-                                <li>Public Sector</li>
-                                <li>Smart Office</li>
-                                <li>Retail</li>
-                            </ul>
-
-                        </div>
-                        <div className="col-md-2 col-sm-4 col-xs-4">
-                            <h5 className="heading">Company</h5>
-                            <ul className="card-text">
-                                <li>About Us</li>
-                                <li>Blog</li>
-                                <li>Contact</li>
-                                <li>Join Us</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="divider mb-4">
-                    </div>
-                    <div className="row" style="font-size:10px;">
-                        <div className="col-md-6 col-sm-6 col-xs-6">
-                            <div className="pull-left">
-                                <p><i className="fa fa-copyright"></i> 2020 thezpdesign</p>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-sm-6 col-xs-6">
-                            <div className="pull-right mr-4 d-flex policy">
-                                <div>Terms of Use</div>
-                                <div>Privacy Policy</div>
-                                <div>Cookie Policy</div>
-                            </div>
-                        </div>
-                    </div>
+        <footer className="text-center text-lg-start bg-light text-muted " style={{}}>
+            {/* Section: Social media */}
+            <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                {/* Left */}
+                <div>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-facebook-f"/>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-twitter"/>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-google"/>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-instagram"/>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-linkedin"/>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-github"/>
+                    </a>
                 </div>
+                {/* Right */}
+            </section>
+            {/* Section: Social media */}
+            {/* Section: Links  */}
+            <section className="">
+                <div className="container text-center text-md-start mt-5">
+                    {/* Grid row */}
+                    <div className="row mt-3">
+                        {/* Grid column */}
+                        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            {/* Content */}
+                            <h6 className="text-uppercase fw-bold mb-4">
+                                <i className="fas fa-gem me-3"/>
+                                Company name
+                            </h6>
+                            <p>
+                                Here you can use rows and columns to organize your footer content.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </p>
+                        </div>
+                        {/* Grid column */}
+                        {/* Grid column */}
+                        <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            {/* Links */}
+                            <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Angular
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    React
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Vue
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Laravel
+                                </a>
+                            </p>
+                        </div>
+                        {/* Grid column */}
+                        {/* Grid column */}
+                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            {/* Links */}
+                            <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Pricing
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Settings
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Orders
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">
+                                    Help
+                                </a>
+                            </p>
+                        </div>
+                        {/* Grid column */}
+                        {/* Grid column */}
+                        <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            {/* Links */}
+                            <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+                            <p>
+                                <i className="fas fa-home me-3"/> New York, NY 10012, US
+                            </p>
+                            <p>
+                                <i className="fas fa-envelope me-3"/>
+                                info@example.com
+                            </p>
+                            <p>
+                                <i className="fas fa-phone me-3"/> + 01 234 567 88
+                            </p>
+                            <p>
+                                <i className="fas fa-print me-3"/> + 01 234 567 89
+                            </p>
+                        </div>
+                        {/* Grid column */}
+                    </div>
+                    {/* Grid row */}
+                </div>
+            </section>
+            {/* Section: Links  */}
+            {/* Copyright */}
+            <div
+                className="text-center p-4"
+                style={{backgroundColor: "rgba(0, 0, 0, 0.05)"}}
+            >
+                © 2023 Copyright:
+                <a className="text-reset fw-bold" >
+                     trungthien.com
+                </a>
             </div>
-        </>
+        </footer>
     )
 }

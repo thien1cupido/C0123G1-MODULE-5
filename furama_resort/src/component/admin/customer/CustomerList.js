@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import * as customerService from "../../../service/CustomerService"
 import {NavLink} from "react-router-dom";
 
@@ -14,6 +14,7 @@ export function CustomerList() {
     return (
         <>
             <div className="container">
+                <div style={{height:'15vh'}}></div>
                 <h1 className="text-center">Danh sách khách hàng</h1>
                 <table className="table table-striped text-center">
                     <thead>
@@ -54,6 +55,7 @@ export function CustomerList() {
                     }
                     </tbody>
                 </table>
+                <div style={{height:'15vh'}}></div>
             </div>
         </>
     )

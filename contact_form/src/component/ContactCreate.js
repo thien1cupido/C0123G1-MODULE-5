@@ -27,7 +27,7 @@ export function ContactCreate() {
                     console.log(values)
                     setTimeout(() => {
                         setSubmitting(false)
-                        toast("Add contact successfully!!!")
+                        toast("Add contract successfully!!!")
                     }, 1500)
                 }}
             >

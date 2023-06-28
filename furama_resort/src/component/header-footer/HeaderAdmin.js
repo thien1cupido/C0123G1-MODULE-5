@@ -1,109 +1,55 @@
-import {Link, NavLink} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
+import {Field} from "formik";
+import {Link} from "react-router-dom";
+import React from "react";
 
 export function HeaderAdmin() {
     return (
         <>
-            <nav
-                className="navbar navbar-expand-lg "
-                data-bs-theme="light"
-                style={{
-                    backgroundColor: "#046056",
-                    height: 75,
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 100,
-                    width: "100%"
-                }}
-            >
-                <div className="sticky-wrapper" style={{marginLeft: "15%"}}>
-                    <div className="header-nav js-header-nav sticky">
-                        <div className="container">
-                            <nav className="navbar navbar-expand-lg">
-                                <div className="navbar-collapse">
-                                    <ul
-                                        id="menu-furama-vi"
-                                        className="menu navbar-nav w-100 js-main-menu j"
-                                    >
-                                        <li
-                                            id="nav-menu-item-5006"
-                                            className="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"
-                                        >
-                                            <NavLink to="" className="nav-link main-menu-link">
-                                                TRANG CHỦ
-                                            </NavLink>
-                                        </li>
-                                        <li
-                                            id="nav-menu-item-5007"
-                                            className="nav-item menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"
-                                        >
-                                            <NavLink to="" className="nav-link main-menu-link">
-                                                KHÁCH HÀNG
-                                            </NavLink>
-                                        </li>
-                                        <li
-                                            id="nav-menu-item-5008"
-                                            className="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"
-                                        >
-                                            <NavLink to="" className="nav-link main-menu-link">
-                                                NHÂN VIÊN
-                                            </NavLink>
-                                        </li>
-                                        <li
-                                            id="nav-menu-item-50010"
-                                            className="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"
-                                        >
-                                            <NavLink to=""
-                                                     className="nav-link main-menu-link ">
-                                                DỊCH VỤ
-                                            </NavLink>
-                                        </li>
-                                        <li
-                                            id="nav-menu-item-5009"
-                                            className="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"
-                                        >
-                                            <NavLink to=""
-                                                     className="nav-link main-menu-link">
-                                                HỢP ĐỒNG THUÊ
-                                            </NavLink>
-                                        </li>
-                                        <li
-                                            id="nav-menu-item-5013"
-                                            className="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"
-                                        >
-                                            <div className="dropdown">
-                                                <a className="dropbtn nav-link main-menu-link">THÊM MỚI</a>
-                                                <div className="dropdown-content">
-                                                    <Link to="">Thêm mới khách hàng</Link>
-                                                    <a href="">Thêm mới nhân viên</a>
-                                                    <Link to="/createRentalContract">Thêm mới hợp đồng thuê</Link>
-                                                    <Link to="/createService">Thêm mới dịch vụ</Link>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <form className="d-flex " style={{marginLeft: 300}}>
-                                        <input
-                                            className="form-control mr-2"
-                                            type="search"
-                                            placeholder="Tìm kiếm"
-                                            style={{width: 220, marginLeft: "5%"}}
-                                            aria-label="Search"
-                                        />
-                                        <button
-                                            className="btn btn-info"
-                                            type="submit"
-                                            style={{fontSize: "1.2em"}}
-                                        >
-                                            <i className="fa-solid fa-magnifying-glass"/>
-                                        </button>
-                                    </form>
-                                </div>
-                            </nav>
+            <header  style={{height: '15vh',backgroundColor:'hsl(163,40%,77%)'}}>
+                    <nav className="navbar navbar-expand-lg">
+                        <div className="container-fluid p-2" style={{backgroundColor:'hsl(163,40%,77%)'}}>
+                            <div className="col-auto col-sm-2 col-lg-2 d-flex justify-content-center align-items-center">
+                                <img
+                                    src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" alt="logo "
+                                    className="img-fluid" width="63" height="100"/>
+                            </div>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li className="nav-item">
+                                        <a className="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                                    </li>
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" href="#" role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            Danh sách
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#">Action</a></li>
+                                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr className="dropdown-divider"/>
+                                            </li>
+                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <form className="d-flex" role="search">
+                                    {/*<Field className="form-control me-2" type="search" placeholder="Search"*/}
+                                    {/*       aria-label="Search"/>*/}
+                                    {/*<button className="btn btn-outline-success" type="submit">Search</button>*/}
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </nav>
+                    </nav>
+            </header>
         </>
     )
-
 }

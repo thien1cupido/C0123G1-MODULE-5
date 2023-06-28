@@ -41,7 +41,7 @@ export function MedicalDeclaration() {
                 setTimeout(() => {
                     console.log(values)
                     setSubmitting(false)
-                    // toast("Add contact successfully!!!")
+                    // toast("Add contract successfully!!!")
                 }, 1500)
             }}
         >

@@ -16,7 +16,7 @@ export function BookUpdate() {
                 setBook(res);
             }
             fetchBook();
-        }, []
+        }, [param.id]
     )
     if (!book) {
         return null;

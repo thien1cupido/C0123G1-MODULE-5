@@ -23,6 +23,13 @@ export const updateCustomer = async (customer) => {
         console.log(e);
     }
 }
+export const save = async (customer) => {
+    try {
+        await axios.post("http://localhost:8080/customerList/", customer);
+    } catch (e) {
+        console.log(e);
+    }
+}
 export const findCustomerType=async ()=>{
     try {
         const result=await axios.get("  http://localhost:8080/customerType");

@@ -150,7 +150,6 @@ export function Header() {
                                             </a>
                                         </li>
                                     </ul>
-                                    {" "}
                                 </div>
                             </nav>
                         </div>

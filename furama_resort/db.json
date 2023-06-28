@@ -43,6 +43,17 @@
       "email": "nguyenvana1@gmail.com",
       "customerType": "Silver",
       "address": "Đà Nẵng"
+    },
+    {
+      "name": "Nguyễn Trung Thiện",
+      "birthOfDay": "2023-06-09",
+      "gender": "1",
+      "citizenIdentification": "2326354082",
+      "phoneNumber": "01245631212",
+      "email": "thien7028@gmail.com",
+      "customerType": "Gold",
+      "address": "asdada",
+      "id": 5
     }
   ],
   "customerType": [
@@ -67,7 +78,60 @@
       "name": "Member"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "serviceList": [
+    {"id":1,
+      "usableArea": 2000,
+      "rentalCosts": 4000,
+      "maximumNumber": 5,
+      "rentalType": "Villa",
+      "roomStandard": "5 sao",
+      "description":"Tiện nghi",
+      "poolArea": 12,
+      "numberFloor": 2
+    },
+    {"id":2,
+      "usableArea": 2000,
+      "rentalCosts": 4000,
+      "maximumNumber": 5,
+      "rentalType": "Villa",
+      "roomStandard": "5 sao",
+      "description":"Tiện nghi",
+      "poolArea": 12,
+      "numberFloor": 2
+    },
+    {"id":3,
+      "usableArea": 2000,
+      "rentalCosts": 4000,
+      "maximumNumber": 5,
+      "rentalType": "Villa",
+      "roomStandard": "5 sao",
+      "description":"Tiện nghi",
+      "poolArea": 12,
+      "numberFloor": 2
+    },
+    {"id":1,
+      "usableArea": 2000,
+      "rentalCosts": 4000,
+      "maximumNumber": 5,
+      "rentalType": "Villa",
+      "roomStandard": "5 sao",
+      "description":"Tiện nghi",
+      "poolArea": 12,
+      "numberFloor": 2
+    }
+  ],
+  "rentalType": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ]
 }
