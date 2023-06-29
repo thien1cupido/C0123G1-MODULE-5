@@ -76,6 +76,9 @@ export function HeaderAdmin() {
                                                 <li><NavLink className="text-decoration-none" style={{color:'black'}} to="/contract/list">Hợp
                                                     đồng</NavLink></li>
                                             </Dropdown.Item>
+                                            <Dropdown.Item>
+                                                <li><NavLink className="text-decoration-none" style={{color:'black'}} to="/facility/list">Dịch vụ</NavLink></li>
+                                            </Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </li>

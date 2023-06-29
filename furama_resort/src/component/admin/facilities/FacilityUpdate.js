@@ -5,7 +5,7 @@ import * as facilityService from '../../../service/FacilityService';
 import {useParams} from "react-router-dom";
 
 export function FacilityUpdate() {
-    const [facilities, setFacility] = useState();
+    const [facilities, setFacility] = useState(null);
     const param = useParams();
     useEffect(() => {
         const getFaclities = async () => {
@@ -14,6 +14,9 @@ export function FacilityUpdate() {
         }
         getFaclities();
     }, [param.id]);
+    if (!facilities) {
+        return null;
+    }
     return (
         <Formik initialValues={{
             id: facilities?.id,

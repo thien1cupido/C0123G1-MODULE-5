@@ -13,6 +13,8 @@ import {ContractCreate} from "./component/admin/contract/ContractCreate";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {FacilityUpdate} from "./component/admin/facilities/FacilityUpdate";
+import {FacilityList} from "./component/admin/facilities/FacilityList";
+import {FacilityCreate} from "./component/admin/facilities/FacilityCreate";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
                 <Route path={"/facility/update/:id"} element={<FacilityUpdate/>}/>
                 <Route path={"/contract/list"} element={<ContractList/>}/>
                 <Route path={"/contract/create"} element={<ContractCreate/>}/>
+                <Route path={"/facility/list"} element={<FacilityList/>}/>
+                <Route path={"/facility/create"} element={<FacilityCreate/>}/>
             </Routes>
             <Footer/>
             <ToastContainer/>
