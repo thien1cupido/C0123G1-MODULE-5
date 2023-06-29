@@ -1,18 +1,17 @@
 import axios from "axios";
 
-export const save= async (contract) =>{
+export const save = (contract) => {
     try {
-        await axios.post("http://localhost:8080/contractList/",contract)
-    }catch (e) {
+        axios.post("http://localhost:8080/contractList/", contract)
+    } catch (e) {
         console.log(e)
     }
 }
 
 
-export const findAll = async () => {
+export const findAll = () => {
     try {
-        const result = await axios.get("http://localhost:8080/contractList");
-        return result.data;
+        return axios.get("http://localhost:8080/contractList");
     } catch (e) {
         console.log(e);
     }

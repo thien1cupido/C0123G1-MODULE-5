@@ -10,6 +10,10 @@ import {CustomerCreate} from "./component/admin/customer/CustomerCreate";
 import {Home} from "./component/home/Home";
 import {ContractList} from "./component/admin/contract/ContractList";
 import {ContractCreate} from "./component/admin/contract/ContractCreate";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {FacilityUpdate} from "./component/admin/facilities/FacilityUpdate";
+
 
 function App() {
     return (
@@ -20,6 +24,7 @@ function App() {
                 <Route path={"/customer/update/:id"} element={<CustomerUpdate/>}/>
                 <Route path={"/"} element={<Home/>}/>
                 <Route path={"/customer/create"} element={<CustomerCreate/>}/>
+                <Route path={"/facility/update/:id"} element={<FacilityUpdate/>}/>
                 <Route path={"/contract/list"} element={<ContractList/>}/>
                 <Route path={"/contract/create"} element={<ContractCreate/>}/>
             </Routes>

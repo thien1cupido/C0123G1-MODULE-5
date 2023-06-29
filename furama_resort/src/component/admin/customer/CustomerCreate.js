@@ -13,7 +13,7 @@ export function CustomerCreate() {
     useEffect(() => {
         const fetchCustomerType = async () => {
             const resultCustomerType = await customerService.findCustomerType()
-            setCustomerType(resultCustomerType)
+            setCustomerType(resultCustomerType.data)
         }
         fetchCustomerType();
     }, []);
@@ -78,8 +78,8 @@ export function CustomerCreate() {
                                                 style={{color: 'red', fontSize: 'large'}}>*</span></label>
                                             <Field as="select"  name="gender" style={{width:'11vw'}}
                                                    className="form-control">
-                                                <option value="0">Nam</option>
-                                                <option value="1">Nữ</option>
+                                                <option value={0}>Nam</option>
+                                                <option value={1}>Nữ</option>
                                             </Field>
                                         </div>
 
@@ -89,7 +89,7 @@ export function CustomerCreate() {
                                             <Field as="select" style={{width: '11vw'}} name="customerType"
                                                    className="form-control">
                                                 {customerType.map((type) => (
-                                                    <option key={type.id} value={type.name}>{type.name}</option>
+                                                    <option key={type.id} value={type.id}>{type.name}</option>
                                                 ))}
                                             </Field>
                                         </div>

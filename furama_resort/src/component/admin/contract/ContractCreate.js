@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 import {TailSpin} from "react-loader-spinner";
 
 export function ContractCreate() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
         <>
             <Formik initialValues={{
@@ -19,13 +19,17 @@ export function ContractCreate() {
                     validationSchema={Yup.object({
                         startDayContract: Yup.string().required("Không được để trống"),
                         endDayContract: Yup.string().required("Không được để trống"),
-                        deposits: Yup.string().required("Không được để trống")
+                        deposits: Yup.number().required("Không được để trống")
                     })}
 
                     onSubmit={(values, {setSubmitting}) => {
                         setSubmitting(false)
                         const createContract = async () => {
-                            await contractService.save(values)
+                            await contractService.save({
+                                ...values,
+                                deposits: +values.deposits
+
+                            })
                             navigate("/contract/list")
                             toast(`Tạo hợp đồng thành công !!`)
                         }

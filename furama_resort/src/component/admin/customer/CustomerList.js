@@ -4,18 +4,25 @@ import {NavLink} from "react-router-dom";
 
 export function CustomerList() {
     const [customerList, setCustomerList] = useState([]);
-    const fetchApi = async () => {
+    const [customerTypes, setCustomerTypes] = useState([]);
+    const getCustomerApi = async () => {
         const result = await customerService.findAll();
-        setCustomerList(result);
+        setCustomerList(result.data);
+    }
+    const getCustomerTypesApi = async () => {
+        const result = await customerService.findCustomerType();
+        setCustomerTypes(result.data);
     }
     useEffect(() => {
-        fetchApi();
+        getCustomerTypesApi();
+    }, [])
+    useEffect(() => {
+        getCustomerApi();
     }, [])
     return (
         <>
-            <div className="container">
-                <div style={{height:'15vh'}}></div>
-                <h1 className="text-center">Danh sách khách hàng</h1>
+            <div className="container" style={{marginTop: '15vh'}}>
+                <h1 className="text-center py-5">Danh sách khách hàng</h1>
                 <table className="table table-striped text-center">
                     <thead>
                     <tr>
@@ -38,11 +45,14 @@ export function CustomerList() {
                                 <td>{customer.id}</td>
                                 <td>{customer.name}</td>
                                 <td>{customer.birthOfDay}</td>
-                                <td>{customer.gender?"Nam":"Nữ"}</td>
+                                <td>{customer.gender ? "Nam" : "Nữ"}</td>
                                 <td>{customer.citizenIdentification}</td>
                                 <td>{customer.phoneNumber}</td>
                                 <td>{customer.email}</td>
-                                <td>{customer.customerType}</td>
+                                <td>{
+                                    customerTypes.find(c => c.id === customer.customerType)?.name
+                                }
+                                </td>
                                 <td>{customer.address}</td>
                                 <td>
                                     <NavLink to={`/customer/update/${customer.id}`}>
@@ -55,7 +65,7 @@ export function CustomerList() {
                     }
                     </tbody>
                 </table>
-                <div style={{height:'15vh'}}></div>
+                <div style={{height: '15vh'}}></div>
             </div>
         </>
     )

@@ -6,17 +6,15 @@ export function ContractList() {
     const [customer, setCustomer] = useState(null);
     const fetchApi = async () => {
         const result = await contractService.findAll();
-        setContractList(result);
-        console.log(result)
+        setContractList(result.data);
     }
     useEffect(() => {
         fetchApi();
     }, [])
     return (
         <>
-            <div className="container">
-                <div style={{height:'15vh'}}></div>
-                <h1 className="text-center pb-5">Danh sách hợp đồng</h1>
+            <div className="container"  style={{marginTop: '15vh'}}>
+                <h1 className="text-center py-5">Danh sách hợp đồng</h1>
                 <table className="table table-striped text-center">
                     <thead>
                     <tr>

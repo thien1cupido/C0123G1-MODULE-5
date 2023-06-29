@@ -1,29 +1,48 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import *  as Yup from 'yup'
+import {useEffect, useState} from "react";
+import * as facilityService from '../../../service/FacilityService';
+import {useParams} from "react-router-dom";
 
-export function ServiceUpdate() {
+export function FacilityUpdate() {
+    const [facilities, setFacility] = useState();
+    const param = useParams();
+    useEffect(() => {
+        const getFaclities = async () => {
+            const facility = await facilityService.findFacility(param.id);
+            setFacility(facility.data)
+        }
+        getFaclities();
+    }, [param.id]);
     return (
         <Formik initialValues={{
-            ServiceName: '',
-            usableArea: '',
-            rentalCosts: '',
-            rentalCost: '',
-            maximumCapacity: '',
-            rentalType: ''
+            id: facilities?.id,
+            ServiceName: facilities?.ServiceName,
+            usableArea: facilities?.usableArea,
+            rentalCosts: facilities?.rentalCosts,
+            maximumCapacity: facilities?.maximumCapacity,
+            rentalType: facilities?.rentalType
 
         }}
                 validationSchema={Yup.object({
+                    id: Yup.number().required("Không được để trống"),
                     ServiceName: Yup.string().required("Không được để trống"),
-                    usableArea: Yup.number("Vui lòng nhập số").
-                    required("Không được để trống"),
+                    usableArea: Yup.number("Vui lòng nhập số").required("Không được để trống"),
                     rentalCosts: Yup.number().required("Không được để trống"),
                     maximumCapacity: Yup.number("Vui lòng nhập số").required("Không được để trống"),
-                    rentalType: Yup.string().required("Không được để trống")
+                    rentalType: Yup.number().required("Không được để trống")
                 })}
                 onSubmit={(values, {setSubmitting}) => {
-                    console.log(values)
-                    setTimeout(() => {
+                    setTimeout(async () => {
                         setSubmitting(false)
+                        await facilityService.save({
+                            ...values,
+                            id: +values.id,
+                            usableArea: +values.usableArea,
+                            rentalCosts: +values.rentalCosts,
+                            maximumCapacity: +values.maximumCapacity,
+                            rentalType: +values.rentalType,
+                        })
                     }, 1000)
                 }}
         >

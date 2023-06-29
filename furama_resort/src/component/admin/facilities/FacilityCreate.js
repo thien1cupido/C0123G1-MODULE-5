@@ -4,7 +4,7 @@ import {TailSpin} from "react-loader-spinner";
 import {toast} from "react-toastify";
 import 'bootstrap/dist/css/bootstrap.css'
 
-export function ServiceCreate() {
+export function FacilityCreate() {
     return (
         <Formik initialValues={{
             ServiceName: '',

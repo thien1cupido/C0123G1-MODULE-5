@@ -1,4 +1,4 @@
-export function ServiceList() {
+export function FacilityList() {
     return (
         <>
             <div className="container">
