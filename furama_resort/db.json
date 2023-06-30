@@ -96,21 +96,13 @@
       "usableArea": 200,
       "rentalCosts": 4000,
       "maximumNumber": 5,
+      "facilityType": 3,
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "House",
+      "rentalType": 1,
       "roomStandard": "5 sao",
       "description": "Tiện nghi",
-      "numberFloor": 2
-    },
-    {
-      "id": 2,
-      "name": "VILLA HƯỚNNG BIỂN",
-      "usableArea": 20,
-      "rentalCosts": 4000,
-      "maximumNumber": 3,
-      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Room",
-      "freeServiceIncluded": "máy lạnh"
+      "numberFloor": 2,
+      "accessory": "mượn xe đạp"
     },
     {
       "id": 3,
@@ -118,12 +110,14 @@
       "usableArea": 200,
       "rentalCosts": 4000,
       "maximumNumber": 5,
+      "facilityType": 3,
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
+      "rentalType": 1,
       "roomStandard": "5 sao",
       "description": "Tiện nghi",
       "poolArea": 12,
-      "numberFloor": 2
+      "numberFloor": 2,
+      "accessory": "mượn xe đạp"
     },
     {
       "id": 4,
@@ -131,24 +125,29 @@
       "usableArea": 200,
       "rentalCosts": 4000,
       "maximumNumber": 5,
+      "facilityType": 3,
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
+      "rentalType": 1,
       "roomStandard": "5 sao",
       "description": "Tiện nghi",
       "poolArea": 12,
-      "numberFloor": 2
-    },{
+      "numberFloor": 2,
+      "accessory": "mượn xe đạp"
+    },
+    {
       "id": 5,
       "name": "VILLA HƯỚNNG BIỂN",
       "usableArea": 200,
       "rentalCosts": 4000,
       "maximumNumber": 5,
+      "facilityType": 3,
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
+      "rentalType": 1,
       "roomStandard": "5 sao",
       "description": "Tiện nghi",
       "poolArea": 12,
-      "numberFloor": 2
+      "numberFloor": 2,
+      "accessory": "mượn xe đạp"
     },
     {
       "id": 6,
@@ -156,54 +155,17 @@
       "usableArea": 200,
       "rentalCosts": 4000,
       "maximumNumber": 5,
+      "facilityType": 3,
       "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
+      "rentalType": 1,
       "roomStandard": "5 sao",
       "description": "Tiện nghi",
       "poolArea": 12,
-      "numberFloor": 2
-    },
-    {
-      "id": 7,
-      "name": "VILLA HƯỚNNG BIỂN",
-      "usableArea": 200,
-      "rentalCosts": 4000,
-      "maximumNumber": 5,
-      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
-      "roomStandard": "5 sao",
-      "description": "Tiện nghi",
-      "poolArea": 12,
-      "numberFloor": 2
-    },
-    {
-      "id": 8,
-      "name": "VILLA HƯỚNNG BIỂN",
-      "usableArea": 200,
-      "rentalCosts": 4000,
-      "maximumNumber": 5,
-      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
-      "roomStandard": "5 sao",
-      "description": "Tiện nghi",
-      "poolArea": 12,
-      "numberFloor": 2
-    },
-    {
-      "id": 9,
-      "name": "VILLA HƯỚNNG BIỂN",
-      "usableArea": 200,
-      "rentalCosts": 4000,
-      "maximumNumber": 5,
-      "image": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-      "rentalType": "Villa",
-      "roomStandard": "5 sao",
-      "description": "Tiện nghi",
-      "poolArea": 12,
-      "numberFloor": 2
+      "numberFloor": 2,
+      "accessory": "mượn xe đạp"
     }
   ],
-  "rentalType": [
+  "facilityType": [
     {
       "id": 1,
       "name": "Villa"
@@ -215,6 +177,24 @@
     {
       "id": 3,
       "name": "Room"
+    }
+  ],
+  "rentalType": [
+    {
+      "id": 1,
+      "name": "Năm"
+    },
+    {
+      "id": 2,
+      "name": "Tháng"
+    },
+    {
+      "id": 3,
+      "name": "Ngày"
+    },
+    {
+      "id": 4,
+      "name": "Giờ"
     }
   ],
   "contractList": [

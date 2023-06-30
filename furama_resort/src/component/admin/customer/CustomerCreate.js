@@ -52,8 +52,7 @@ export function CustomerCreate() {
                     }}
             >{
                 ({isSubmitting}) => (
-                    <div className="container">
-                        <div style={{height:'15vh'}}></div>
+                    <div className="container" style={{marginTop: '25vh', marginBottom: '15vh'}}>
                         <div className="row d-flex justify-content-center">
                             <div className="col-xxl-5">
                                 <Form>
@@ -145,7 +144,6 @@ export function CustomerCreate() {
                                 </Form>
                             </div>
                         </div>
-                        <div style={{height:'15vh'}}></div>
                     </div>
                 )
             }

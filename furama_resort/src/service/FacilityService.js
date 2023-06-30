@@ -29,3 +29,17 @@ export const deleteFacility = (id) => {
         console.log(e);
     }
 }
+export const findAllRentalType =()=>{
+    try {
+        return axios.get("http://localhost:8080/rentalType")
+    }catch (e) {
+        console.log(e);
+    }
+}
+export const findAllFacilityType =()=>{
+    try {
+        return axios.get(" http://localhost:8080/facilityType")
+    }catch (e) {
+        console.log(e);
+    }
+}

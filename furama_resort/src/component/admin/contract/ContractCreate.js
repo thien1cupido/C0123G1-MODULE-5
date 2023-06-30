@@ -37,12 +37,11 @@ export function ContractCreate() {
                     }}
             >{
                 ({isSubmitting}) => (
-                    <div className="container">
-                        <div style={{height: '15vh'}}></div>
+                    <div className="container" style={{marginTop: '25vh', marginBottom: '15vh'}}>
                         <div className="row d-flex justify-content-center">
                             <div className="col-xxl-3">
                                 <Form>
-                                    <h1 className="text-center">Tạo hợp đồng</h1>
+                                    <h1 className="text-center py-3">Tạo hợp đồng</h1>
                                     <div className="mt-3">
                                         <label className="form-label">Ngày bắt đầu <span
                                             style={{color: 'red', fontSize: 'large'}}>*</span></label>
@@ -83,7 +82,6 @@ export function ContractCreate() {
                                 </Form>
                             </div>
                         </div>
-                        <div style={{height: '15vh'}}></div>
                     </div>
                 )
             }

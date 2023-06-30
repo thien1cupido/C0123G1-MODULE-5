@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import * as contractService from "../../../service/ContractService"
+import {NavLink} from "react-router-dom";
+import {Field, Form, Formik} from "formik";
 
 export function ContractList() {
     const [contractList, setContractList] = useState([]);
@@ -13,8 +15,25 @@ export function ContractList() {
     }, [])
     return (
         <>
-            <div className="container"  style={{marginTop: '15vh'}}>
-                <h1 className="text-center py-5">Danh sách hợp đồng</h1>
+            <div className="container" style={{marginTop: '25vh', marginBottom: '15vh'}}>
+                <div className="py-5 d-flex justify-content-xxl-between justify-content-xl-between">
+                    <div className="d-flex align-items-center ms-5">
+                        <NavLink to="/contract/create">
+                            <button className="btn btn-success">Thêm mới</button>
+                        </NavLink>
+                    </div>
+                    <h1>Danh sách hợp đồng</h1>
+                    <div className="d-flex align-items-center">
+                        <Formik>
+                            <Form className="d-flex">
+                                <Field className="me-3"placeHolder="Tìm kiếm"/>
+                                <div>
+                                    <button className="btn btn-outline-info">Tìm</button>
+                                </div>
+                            </Form>
+                        </Formik>
+                    </div>
+                </div>
                 <table className="table table-striped text-center">
                     <thead>
                     <tr>
@@ -41,7 +60,6 @@ export function ContractList() {
                     }
                     </tbody>
                 </table>
-                <div style={{height:'15vh'}}></div>
             </div>
         </>
     )

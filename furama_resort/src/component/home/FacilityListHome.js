@@ -5,14 +5,29 @@ import {Button, Modal} from "react-bootstrap";
 
 export function FacilityListHome() {
     const [facility, setFacility] = useState([]);
+    const [deleteFaciltys, setDeleteFacilty] = useState({
+        id: '',
+        name: ''
+    });
     const [modalDelete, setModalDelete] = useState(false);
-    const fetchApi = async () => {
+
+    const getFacilitiesApi = async () => {
         const result = await facilityService.findAll();
         setFacility(result.data);
     }
+    const sendInfoDeleteFacility = (id, name) => {
+        setDeleteFacilty({
+            id: id,
+            name: name
+        });
+    }
+
+    const deleteFacility = async (id) => {
+        await facilityService.deleteFacility(id);
+    }
     useEffect(() => {
-        fetchApi()
-    }, [])
+        getFacilitiesApi();
+    }, [facility])
     return (
         <>
             <div className="container-fluid">
@@ -41,7 +56,11 @@ export function FacilityListHome() {
                                                                     Sửa
                                                                 </Button></Link>
                                                             <button className="btn btn-danger"
-                                                                    onClick={() => setModalDelete(true)}>Xóa
+                                                                    onClick={() => {
+                                                                        setModalDelete(true);
+                                                                        sendInfoDeleteFacility(facilities.id, facilities.name);
+                                                                    }}
+                                                            >Xóa
                                                             </button>
                                                         </div>
                                                     </div>
@@ -103,14 +122,21 @@ export function FacilityListHome() {
                 </Modal.Header>
                 <Modal.Body>
                     <p>
-                        Bạn có muốn xóa người tên
+                        Bạn có muốn xóa dịch vụ tên<span style={{color: "red"}}>{deleteFaciltys.name}</span> ?
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Modal.Title>
                         <div className="d-flex justify-content-end">
-                            <button className="btn btn-primary mx-3" onClick={() => setModalDelete(false)}>Không</button>
-                            <button className="btn btn-danger me-3">Có</button>
+                            <button className="btn btn-primary mx-3" onClick={() => setModalDelete(false)}>Không
+                            </button>
+                            <button className="btn btn-danger me-3"
+                                    onClick={() => {
+                                        deleteFacility(deleteFaciltys.id);
+                                        setModalDelete(false)
+                                    }
+                                    }>Có
+                            </button>
                         </div>
                     </Modal.Title>
                 </Modal.Footer>
