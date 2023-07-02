@@ -16,3 +16,17 @@ export const findAll = () => {
         console.log(e);
     }
 }
+export const deleteContractById = (id) => {
+    try {
+        return axios.delete("http://localhost:8080/contractList/"+id);
+    } catch (e) {
+        console.log(e);
+    }
+}
+export const findAllPage = (page) => {
+    try {
+        return axios.get(`http://localhost:8080/contractList?_page=${page}&_limit=5`);
+    } catch (e) {
+        console.log(e);
+    }
+}

@@ -2,6 +2,8 @@ import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import * as facilityService from "../../service/FacilityService";
 import {Button, Modal} from "react-bootstrap";
+import ReactPaginate from "react-paginate";
+
 
 export function FacilityListHome() {
     const [facility, setFacility] = useState([]);
@@ -9,25 +11,30 @@ export function FacilityListHome() {
         id: '',
         name: ''
     });
+    const [totalPage, setTotalPage] = useState(0)
     const [modalDelete, setModalDelete] = useState(false);
 
-    const getFacilitiesApi = async () => {
-        const result = await facilityService.findAll();
-        setFacility(result.data);
-    }
     const sendInfoDeleteFacility = (id, name) => {
         setDeleteFacilty({
             id: id,
             name: name
         });
     }
-
     const deleteFacility = async (id) => {
         await facilityService.deleteFacility(id);
     }
+    const getFacilityAllPage = async (page) => {
+        let res = await facilityService.findAllPage(page);
+        setFacility(res.data);
+        setTotalPage(Math.ceil((res.headers['x-total-count']) / 9))
+    }
+    const handlePageClick = (event) => {
+        getFacilityAllPage(event.selected + 1)
+        setTotalPage(+event.selected + 1);
+    }
     useEffect(() => {
-        getFacilitiesApi();
-    }, [facility])
+        getFacilityAllPage(totalPage);
+    }, [])
     return (
         <>
             <div className="container-fluid">
@@ -37,9 +44,9 @@ export function FacilityListHome() {
                             <div className="col-xl-10 col-xxl-10 ">
                                 <div className="row d-flex">
                                     {
-                                        facility.map((facilities) => (
+                                        facility.map((facilities, index) => (
                                             <div className="col-4 py-5 d-flex justify-content-center">
-                                                <div className="card" style={{width: "18rem"}} key={facilities.id}>
+                                                <div className="card" style={{width: "18rem"}} key={index}>
                                                     <img src={facilities.image}
                                                          className="card-img-top" alt="..."/>
                                                     <div className="card-body">
@@ -54,7 +61,8 @@ export function FacilityListHome() {
                                                             <Link to={`/facility/update/${facilities.id}`}>
                                                                 <Button variant="primary">
                                                                     Sửa
-                                                                </Button></Link>
+                                                                </Button>
+                                                            </Link>
                                                             <button className="btn btn-danger"
                                                                     onClick={() => {
                                                                         setModalDelete(true);
@@ -69,40 +77,26 @@ export function FacilityListHome() {
                                         ))
                                     }
                                 </div>
-                                <nav className="py-5">
-                                    <ul className="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                        <li className="page-item">
-                                            <a className="page-link" href="#" data-abc="true">
-                                                <i className="fa fa-angle-left">Previous</i>
-                                            </a>
-                                        </li>
-                                        <li className="page-item active">
-                                            <a className="page-link" href="#" data-abc="true">
-                                                1
-                                            </a>
-                                        </li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#" data-abc="true">
-                                                2
-                                            </a>
-                                        </li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#" data-abc="true">
-                                                3
-                                            </a>
-                                        </li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#" data-abc="true">
-                                                4
-                                            </a>
-                                        </li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#" data-abc="true">
-                                                <i className="fa fa-angle-right">Next</i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                <div className="d-flex justify-content-center py-5">
+                                    <ReactPaginate
+                                        breakLabel="..."
+                                        nextLabel="Sau >"
+                                        onPageChange={handlePageClick}
+                                        pageRangeDisplayed={9}
+                                        pageCount={totalPage}
+                                        previousLabel="< Trước"
+                                        pageClassName="page-item"
+                                        pageLinkClassName="page-link"
+                                        previousClassName="page-item"
+                                        previousLinkClassName="page-link"
+                                        nextClassName="page-item"
+                                        nextLinkClassName="page-link"
+                                        breakClassName="page-item"
+                                        breakLinkClassName="page-link"
+                                        containerClassName="pagination"
+                                        activeClassName="active"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -122,7 +116,7 @@ export function FacilityListHome() {
                 </Modal.Header>
                 <Modal.Body>
                     <p>
-                        Bạn có muốn xóa dịch vụ tên<span style={{color: "red"}}>{deleteFaciltys.name}</span> ?
+                        Bạn có muốn xóa dịch vụ tên <span style={{color: "red"}}>{deleteFaciltys.name}</span> ?
                     </p>
                 </Modal.Body>
                 <Modal.Footer>

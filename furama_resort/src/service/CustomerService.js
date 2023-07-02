@@ -1,8 +1,24 @@
 import axios from "axios";
 
-export const findAll = () => {
+export const deleteCustomer = async (id) => {
     try {
-        return axios.get("http://localhost:8080/customerList");
+        await axios.delete("http://localhost:8080/customerList/" + id);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export const findAll = async () => {
+    try {
+        return await axios.get("http://localhost:8080/customerList");
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const findAllPage = async (page) => {
+    try {
+        return await axios.get(`http://localhost:8080/customerList?_page=${page}&_limit=5`);
     } catch (e) {
         console.log(e);
     }
@@ -14,23 +30,23 @@ export const findCustomerById = (id) => {
         console.log(e);
     }
 }
-export const updateCustomer = (customer) => {
+export const updateCustomer = async (customer) => {
     try {
-        axios.put("http://localhost:8080/customerList/" + customer.id, customer);
+        await axios.put("http://localhost:8080/customerList/" + customer.id, customer);
     } catch (e) {
         console.log(e);
     }
 }
-export const save = (customer) => {
+export const save = async (customer) => {
     try {
-        axios.post("http://localhost:8080/customerList/", customer);
+        await axios.post("http://localhost:8080/customerList/", customer);
     } catch (e) {
         console.log(e);
     }
 }
-export const findCustomerType = () => {
+export const findCustomerType = async () => {
     try {
-        return axios.get("http://localhost:8080/customerType");
+        return await axios.get("http://localhost:8080/customerType");
     } catch (e) {
         console.log(e);
     }

@@ -12,9 +12,10 @@ import {ContractList} from "./component/admin/contract/ContractList";
 import {ContractCreate} from "./component/admin/contract/ContractCreate";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {FacilityUpdate} from "./component/admin/facilities/FacilityUpdate";
 import {FacilityList} from "./component/admin/facilities/FacilityList";
 import {FacilityCreate} from "./component/admin/facilities/FacilityCreate";
+import {FacilityUpdate} from "./component/admin/facilities/FacilityUpdate";
+
 
 
 function App() {
@@ -26,11 +27,11 @@ function App() {
                 <Route path={"/customer/update/:id"} element={<CustomerUpdate/>}/>
                 <Route path={"/"} element={<Home/>}/>
                 <Route path={"/customer/create"} element={<CustomerCreate/>}/>
-                <Route path={"/facility/update/:id"} element={<FacilityUpdate/>}/>
                 <Route path={"/contract/list"} element={<ContractList/>}/>
                 <Route path={"/contract/create"} element={<ContractCreate/>}/>
                 <Route path={"/facility/list"} element={<FacilityList/>}/>
                 <Route path={"/facility/create"} element={<FacilityCreate/>}/>
+                <Route path={"/facility/update/:id"} element={<FacilityUpdate/>}/>
             </Routes>
             <Footer/>
             <ToastContainer/>
