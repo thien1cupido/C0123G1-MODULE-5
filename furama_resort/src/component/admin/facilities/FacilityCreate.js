@@ -41,11 +41,10 @@ export function FacilityCreate() {
             accessory: ''
         }}
                 validationSchema={Yup.object({
-                    name: Yup.string().required("Không được để trống"),
-                    usableArea: Yup.number("Vui lòng nhập số").required("Không được để trống"),
-                    rentalCosts: Yup.number().required("Không được để trống"),
-                    maximumNumber: Yup.number().moreThan(0, "Không được để trống"),
-                    image: Yup.string(),
+                    name: Yup.string().required("Không được để trống").matches(/^([A-Za-z]* )*[A-Za-z]*$/,"Tên không được chứa số"),
+                    usableArea: Yup.number("Vui lòng nhập số").required("Không được để trống").moreThan(0,"Phải là số dương"),
+                    rentalCosts: Yup.number("Vui lòng nhập số").required("Không được để trống").moreThan(0,"Phải là số dương"),
+                    maximumNumber: Yup.number("Vui lòng nhập số").required("Không được để trống").moreThan(0,"Phải là số dương"),
                     rentalType: Yup.number().moreThan(0, "Không được để trống"),
                     roomStandard: Yup.string(),
                     description: Yup.string(),
@@ -76,7 +75,7 @@ export function FacilityCreate() {
             <div className="container-fluid" style={{marginTop: '15vh', marginBottom: '15vh'}}>
                 <div className="row d-flex justify-content-center">
                     <div className="col-xxl-5 ">
-                        <div className="pb-2 boder-form">
+                        <div className="p-5 border-form mt-5">
                             <div className="my-4 d-flex justify-content-center">
                                 <h1 className="py-3">Thêm mới dịch vụ</h1>
                             </div>
@@ -147,7 +146,7 @@ export function FacilityCreate() {
                                             <label className="form-label" htmlFor="accessory">Dịch vụ miễn phí đi
                                                 kèm</label>
                                             <Field className="form-control" type="text" name="accessory"
-                                                   style={{width: '36.5vw'}}
+                                                   style={{width: '30.3vw'}}
                                                    id="accessory"/>
                                             <ErrorMessage name="accessory" component='span'
                                                           style={{color: 'red'}}/>
@@ -157,78 +156,80 @@ export function FacilityCreate() {
                                 {
                                     rentalTypeStatus === "2" || rentalTypeStatus === "1" ?
                                         rentalTypeStatus === "1" ?
+                                            <>
+                                                <div className="d-flex justify-content-around">
+                                                    <div className="mt-3 col-xxl-3 col-xl-3">
+                                                        <label className="form-label" htmlFor="roomStandard">Tiêu chuẩn
+                                                            phòng</label>
+                                                        <Field className="form-control" type="text" name="roomStandard"
+                                                               id="roomStandard"/>
+                                                        <ErrorMessage name="roomStandard" component='span'
+                                                                      style={{color: 'red'}}/>
+                                                    </div>
+                                                    <div className="mt-3 col-xxl-3 col-xl-3">
+                                                        <label className="form-label" htmlFor="numberFloor">Số
+                                                            tầng</label>
+                                                        <Field className="form-control" type="text" name="numberFloor"
+                                                               id="roomStandard"/>
+                                                        <ErrorMessage name="numberFloor" component='span'
+                                                                      style={{color: 'red'}}/>
+                                                    </div>
+                                                    <div className="mt-3 col-xxl-3 col-xl-3">
+                                                        <label className="form-label" htmlFor="poolArea">Diện tích
+                                                            hồ
+                                                            bơi</label>
+                                                        <Field className="form-control" type="text" name="poolArea"
+                                                               id="poolArea"/>
+                                                        <ErrorMessage name="poolArea" component='span'
+                                                                      style={{color: 'red'}}/>
+                                                    </div>
 
-                                <>
-                                    <div className="d-flex justify-content-around">
-                                        <div className="mt-3 col-xxl-3 col-xl-3">
-                                            <label className="form-label" htmlFor="roomStandard">Tiêu chuẩn
-                                                phòng</label>
-                                            <Field className="form-control" type="text" name="roomStandard"
-                                                   id="roomStandard"/>
-                                            <ErrorMessage name="roomStandard" component='span'
-                                                          style={{color: 'red'}}/>
-                                        </div>
-                                        <div className="mt-3 col-xxl-3 col-xl-3">
-                                            <label className="form-label" htmlFor="numberFloor">Số tầng</label>
-                                            <Field className="form-control" type="text" name="numberFloor"
-                                                   id="roomStandard"/>
-                                            <ErrorMessage name="numberFloor" component='span'
-                                                          style={{color: 'red'}}/>
-                                        </div>
-                                        <div className="mt-3 col-xxl-3 col-xl-3">
-                                            <label className="form-label" htmlFor="poolArea">Diện tích
-                                                hồ
-                                                bơi</label>
-                                            <Field className="form-control" type="text" name="poolArea"
-                                                   id="poolArea"/>
-                                            <ErrorMessage name="poolArea" component='span'
-                                                          style={{color: 'red'}}/>
-                                        </div>
-
-                                    </div>
-                                    <div className="mt-3 ms-4">
-                                        <label className="form-label" htmlFor="description">Mô tả tiện nghi
-                                            khác</label>
-                                        <Field className="form-control" as="textarea" rows={3} style={{width: '36.5vw'}}
-                                               name="description"
-                                               id="description"/>
-                                        <ErrorMessage name="description" component='span'
-                                                      style={{color: 'red'}}/>
-                                    </div>
-                                </>
-                                : <>
-                                            <div className="d-flex justify-content-around">
-                                                <div className="mt-3 col-xxl-5 col-xl-5">
-                                                    <label className="form-label" htmlFor="roomStandard">Tiêu chuẩn
-                                                        phòng</label>
-                                                    <Field className="form-control" type="text" name="roomStandard"
-                                                           id="roomStandard"/>
-                                                    <ErrorMessage name="roomStandard" component='span'
+                                                </div>
+                                                <div className="mt-3 ms-4">
+                                                    <label className="form-label" htmlFor="description">Mô tả tiện nghi
+                                                        khác</label>
+                                                    <Field className="form-control" as="textarea" rows={3}
+                                                           style={{width: '30.3vw'}}
+                                                           name="description"
+                                                           id="description"/>
+                                                    <ErrorMessage name="description" component='span'
                                                                   style={{color: 'red'}}/>
                                                 </div>
-                                                <div className="mt-3 col-xxl-5 col-xl-5">
-                                                    <label className="form-label" htmlFor="numberFloor">Số tầng</label>
-                                                    <Field className="form-control" type="text" name="numberFloor"
-                                                           id="roomStandard"/>
-                                                    <ErrorMessage name="numberFloor" component='span'
+                                            </>
+                                            : <>
+                                                <div className="d-flex justify-content-around">
+                                                    <div className="mt-3 col-xxl-5 col-xl-5">
+                                                        <label className="form-label" htmlFor="roomStandard">Tiêu chuẩn
+                                                            phòng</label>
+                                                        <Field className="form-control" type="text" name="roomStandard"
+                                                               id="roomStandard"/>
+                                                        <ErrorMessage name="roomStandard" component='span'
+                                                                      style={{color: 'red'}}/>
+                                                    </div>
+                                                    <div className="mt-3 col-xxl-5 col-xl-5">
+                                                        <label className="form-label" htmlFor="numberFloor">Số tầng</label>
+                                                        <Field className="form-control" type="text" name="numberFloor"
+                                                               id="roomStandard"/>
+                                                        <ErrorMessage name="numberFloor" component='span'
+                                                                      style={{color: 'red'}}/>
+                                                    </div>
+                                                </div>
+                                                <div className="mt-3 ms-4">
+                                                    <label className="form-label" htmlFor="description">Mô tả tiện nghi
+                                                        khác</label>
+                                                    <Field className="form-control" as="textarea" rows={3}
+                                                           style={{width: '30.3vw'}}
+                                                           name="description"
+                                                           id="description"/>
+                                                    <ErrorMessage name="description" component='span'
                                                                   style={{color: 'red'}}/>
                                                 </div>
-                                            </div>
-                                            <div className="mt-3 ms-4">
-                                                <label className="form-label" htmlFor="description">Mô tả tiện nghi
-                                                    khác</label>
-                                                <Field className="form-control" as="textarea" rows={3} style={{width: '36.5vw'}}
-                                                       name="description"
-                                                       id="description"/>
-                                                <ErrorMessage name="description" component='span'
-                                                              style={{color: 'red'}}/>
-                                            </div>
-                                        </>:''
+                                            </> : ''
                                 }
                                 <div className="mt-3 ms-4">
                                     <label className="form-label" htmlFor="image">Ảnh</label>
                                     <Field className="form-control" type="text" name="image" id="image"
-                                           style={{width: '36.5vw'}}/>
+                                           style={{width: '30.3vw'}}/>
                                     <ErrorMessage name="image" component='span'
                                                   style={{color: 'red'}}/>
                                 </div>

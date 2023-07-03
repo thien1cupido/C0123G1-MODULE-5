@@ -41,7 +41,7 @@ export function ContractCreate() {
                         facilityId: Yup.number().moreThan(0, "Không được để trống"),
                         startDayContract: Yup.string().required("Không được để trống"),
                         endDayContract: Yup.string().required("Không được để trống"),
-                        deposits: Yup.number().required("Không được để trống")
+                        deposits: Yup.number().required("Không được để trống").moreThan(0,"Phải là số dương")
                     })}
 
                     onSubmit={(values, {setSubmitting}) => {
@@ -66,7 +66,7 @@ export function ContractCreate() {
                 ({isSubmitting}) => (
                     <div className="container" style={{marginTop: '25vh', marginBottom: '15vh'}}>
                         <div className="row d-flex justify-content-center">
-                            <div className="col-xxl-5 boder-form p-xxl-5">
+                            <div className="col-xxl-5 border-form p-xxl-5">
                                 <Form>
                                     <h1 className="text-center py-3">Tạo hợp đồng</h1>
                                     <div className="row d-flex justify-content-center">

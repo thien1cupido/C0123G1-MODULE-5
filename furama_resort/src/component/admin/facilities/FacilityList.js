@@ -89,7 +89,7 @@ export function FacilityList() {
                         </Formik>
                     </div>
                 </div>
-                <table className="table table-striped text-center">
+                <table className="table table-striped table-hover text-center">
                     <thead>
                     <tr>
                         <th>Mã dịch vụ</th>

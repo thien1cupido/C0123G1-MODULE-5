@@ -1,5 +1,14 @@
 import axios from "axios";
 
+export async function search(values) {
+    try {
+        return axios.get(`http://localhost:8080/contractList?id=${values.search}`);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
 export const save = (contract) => {
     try {
         axios.post("http://localhost:8080/contractList/", contract)
@@ -18,7 +27,7 @@ export const findAll = () => {
 }
 export const deleteContractById = (id) => {
     try {
-        return axios.delete("http://localhost:8080/contractList/"+id);
+        return axios.delete("http://localhost:8080/contractList/" + id);
     } catch (e) {
         console.log(e);
     }

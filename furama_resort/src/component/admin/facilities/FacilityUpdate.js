@@ -53,11 +53,11 @@ export function FacilityUpdate() {
             accessory: facility?.accessory
         }}
                 validationSchema={Yup.object({
-                    name: Yup.string().required("Không được để trống"),
-                    usableArea: Yup.number("Vui lòng nhập số").required("Không được để trống"),
-                    rentalCosts: Yup.number().required("Không được để trống"),
-                    maximumNumber: Yup.number().moreThan(0, "Không được để trống"),
-                    image: Yup.string(),
+                    id: Yup.number().required(),
+                    name: Yup.string().required("Không được để trống").matches(/^([A-Za-z]* )*[A-Za-z]*$/, "Tên không được chứa số"),
+                    usableArea: Yup.number("Vui lòng nhập số").required("Không được để trống").moreThan(0, "Phải là số dương"),
+                    rentalCosts: Yup.number("Vui lòng nhập số").required("Không được để trống").moreThan(0, "Phải là số dương"),
+                    maximumNumber: Yup.number("Vui lòng nhập số").required("Không được để trống").moreThan(0, "Phải là số dương"),
                     rentalType: Yup.number().moreThan(0, "Không được để trống"),
                     roomStandard: Yup.string(),
                     description: Yup.string(),
@@ -67,6 +67,7 @@ export function FacilityUpdate() {
                     const update = async () => {
                         await facilityService.update({
                             ...values,
+                            id: +values?.id,
                             usableArea: +values?.usableArea,
                             rentalCosts: +values?.rentalCosts,
                             facilityType: +values?.facilityType,
@@ -88,7 +89,7 @@ export function FacilityUpdate() {
             <div className="container-fluid" style={{marginTop: '15vh', marginBottom: '15vh'}}>
                 <div className="row d-flex justify-content-center">
                     <div className="col-xxl-5 ">
-                        <div className="pb-2 boder-form">
+                        <div className="p-5 border-form">
                             <div className="my-4 d-flex justify-content-center">
                                 <h1 className="py-3">Sửa thông tin dịch vụ</h1>
                             </div>
@@ -161,7 +162,7 @@ export function FacilityUpdate() {
                                             <label className="form-label" htmlFor="accessory">Dịch vụ miễn phí đi
                                                 kèm</label>
                                             <Field className="form-control" type="text" name="accessory"
-                                                   style={{width: '36.5vw'}}
+                                                   style={{width: '30.3vw'}}
                                                    id="accessory"/>
                                             <ErrorMessage name="accessory" component='span'
                                                           style={{color: 'red'}}/>
@@ -205,7 +206,7 @@ export function FacilityUpdate() {
                                                     <label className="form-label" htmlFor="description">Mô tả tiện nghi
                                                         khác</label>
                                                     <Field className="form-control" as="textarea" rows={3}
-                                                           style={{width: '36.5vw'}}
+                                                           style={{width: '30.3vw'}}
                                                            name="description"
                                                            id="description"/>
                                                     <ErrorMessage name="description" component='span'
@@ -234,7 +235,7 @@ export function FacilityUpdate() {
                                                     <label className="form-label" htmlFor="description">Mô tả tiện nghi
                                                         khác</label>
                                                     <Field className="form-control" as="textarea" rows={3}
-                                                           style={{width: '36.5vw'}}
+                                                           style={{width: '30.3vw'}}
                                                            name="description"
                                                            id="description"/>
                                                     <ErrorMessage name="description" component='span'
@@ -245,7 +246,7 @@ export function FacilityUpdate() {
                                 <div className="mt-3 ms-4">
                                     <label className="form-label" htmlFor="image">Ảnh</label>
                                     <Field className="form-control" type="text" name="image" id="image"
-                                           style={{width: '36.5vw'}}/>
+                                           style={{width: '30.3vw'}}/>
                                     <ErrorMessage name="image" component='span'
                                                   style={{color: 'red'}}/>
                                 </div>

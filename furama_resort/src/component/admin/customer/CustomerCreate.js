@@ -21,8 +21,8 @@ export function CustomerCreate() {
         <>
             <Formik initialValues={{
                 name: '',
-                birthOfDay: '',
-                gender: 0,
+                    birthOfDay: '',
+                    gender: 0,
                 citizenIdentification: '',
                 phoneNumber: '',
                 email: '',
@@ -30,12 +30,12 @@ export function CustomerCreate() {
                 address: ''
             }}
                     validationSchema={Yup.object({
-                        name: Yup.string().required("Không được để trống"),
+                        name: Yup.string().required("Không được để trống").matches(/^[A-Z][A-Za-z]* ([A-Z][A-Za-z]* )*[A-Z][A-Za-z]*$/,"Tên ít nhất 2 từ ,không chứa số và viết hoa chữ cái đầu"),
                         birthOfDay: Yup.string().required("Không được để trống"),
                         gender: Yup.number().moreThan(0, "Không được để trống"),
-                        citizenIdentification: Yup.string().required("Không được để trống"),
-                        phoneNumber: Yup.number().required("Không được để trống"),
-                        email: Yup.string().required("Không được để trống"),
+                        citizenIdentification: Yup.string().required("Không được để trống").matches(/^[0-9]{9,9}$/,"CMDD phải có 9 số"),
+                        phoneNumber: Yup.string().required("Không được để trống").matches(/^((\+84)|090|091)[0-9]{7,7}$/,"SĐT phải bắt đầu từ 090 hoặc 091 và có 10 số"),
+                        email: Yup.string().required("Không được để trống").matches(/^[a-z]\w{5,}\@[a-z]{3,5}\.[a-z]{2,5}$/,"email phải có @,có đuôi .com"),
                         customerType: Yup.number().moreThan(0, "Không được để trống"),
                         address: Yup.string().required("Không được để trống")
                     })}
@@ -62,7 +62,7 @@ export function CustomerCreate() {
                 ({isSubmitting}) => (
                     <div className="container" style={{marginTop: '25vh', marginBottom: '15vh'}}>
                         <div className="row d-flex justify-content-center">
-                            <div className="col-xxl-5 boder-form p-5">
+                            <div className="col-xxl-5 border-form p-5">
                                 <Form>
                                     <h1 className="text-center py-5">Thêm mới khách hàng</h1>
                                     <div className="d-flex justify-content-around mt-3">
@@ -94,10 +94,10 @@ export function CustomerCreate() {
                                             <ErrorMessage component="span" style={{color: 'red'}}
                                                           name="gender"/>
                                         </div>
-                                        <div className="col-xxl-5" >
+                                        <div className="col-xxl-5">
                                             <label className="form-label">Loại khách hàng <span
                                                 style={{color: 'red', fontSize: 'large'}}>*</span> </label>
-                                            <Field as="select"  name="customerType"
+                                            <Field as="select" name="customerType"
                                                    className="form-control">
                                                 <option value={"0"}>--Chọn loại khách---</option>
                                                 {customerType.map((type) => (
@@ -113,7 +113,7 @@ export function CustomerCreate() {
                                         <div className="col-xxl-5">
                                             <label className="form-label">CMND <span
                                                 style={{color: 'red', fontSize: 'large'}}>*</span></label>
-                                            <Field type="text"  name="citizenIdentification"
+                                            <Field type="text" name="citizenIdentification"
                                                    className="form-control"/>
                                             <ErrorMessage component="span" style={{color: 'red'}}
                                                           name="citizenIdentification"/>
@@ -129,13 +129,15 @@ export function CustomerCreate() {
                                     <div className="mt-2 ms-3">
                                         <label className="form-label">Email <span
                                             style={{color: 'red', fontSize: 'large'}}>*</span></label>
-                                        <Field type="text" name="email" className="form-control" style={{width:'27.2vw'}}/>
+                                        <Field type="text" name="email" className="form-control"
+                                               style={{width: '27.2vw'}}/>
                                         <ErrorMessage component="span" style={{color: 'red'}} name="email"/>
                                     </div>
                                     <div className="mt-2 ms-3">
                                         <label className="form-label">Địa chỉ <span
                                             style={{color: 'red', fontSize: 'large'}}>*</span></label>
-                                        <Field as="textarea" rows="3" style={{width:'27.2vw'}} name="address" className="form-control"/>
+                                        <Field as="textarea" rows="3" style={{width: '27.2vw'}} name="address"
+                                               className="form-control"/>
                                         <ErrorMessage component="span" style={{color: 'red'}} name="address"/>
                                     </div>
                                     {
@@ -152,7 +154,7 @@ export function CustomerCreate() {
                                                     visible={true}
                                                 />
                                             </div> :
-                                             <div className="d-flex justify-content-center">
+                                            <div className="d-flex justify-content-center">
                                                 <button type="submit" className="btn btn-success mt-5 ">Thêm mới
                                                 </button>
                                             </div>

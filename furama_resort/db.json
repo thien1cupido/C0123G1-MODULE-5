@@ -26,10 +26,10 @@
       "address": "Quảng Nam",
       "birthOfDay": "2023-07-05",
       "id": 3,
-      "name": "Nguyễn Trung Thiện",
+      "name": "Nguyen Trung Thiens",
       "gender": 1,
-      "citizenIdentification": 2326354082,
-      "phoneNumber": "01245631212",
+      "citizenIdentification": "232635408",
+      "phoneNumber": "0914563121",
       "email": "thien7028@gmail.com",
       "customerType": 3
     }

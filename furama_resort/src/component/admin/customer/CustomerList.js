@@ -9,6 +9,7 @@ import ReactPaginate from "react-paginate";
 export function CustomerList() {
     const [customerList, setCustomerList] = useState([]);
     const [customerTypes, setCustomerTypes] = useState([]);
+    const [totalPage, setTotalPage] = useState(0);
     const [deleteCustomer, setDeleteCustomer] = useState({
         id: '',
         name: ''
@@ -26,7 +27,7 @@ export function CustomerList() {
             name: name
         });
     }
-    const [totalPage, setTotalPage] = useState(0);
+
     const getCustomerAllPage = async (page) => {
         let res = await customerService.findAllPage(page);
         setCustomerList(res.data);
@@ -47,7 +48,7 @@ export function CustomerList() {
         getCustomerTypesApi();
     }
     useEffect(() => {
-        getCustomerTypesApi(totalPage)
+        getCustomerAllPage(totalPage)
         getCustomerTypesApi();
     }, []);
     return (
@@ -61,11 +62,22 @@ export function CustomerList() {
                     </div>
                     <h1>Danh sách khách hàng</h1>
                     <div className="d-flex align-items-center">
-                        <Formik>
+                        <Formik initialValues={{
+                            nameSearch: ''
+                        }}
+                                onSubmit={
+                                    values => {
+                                        const seacrhs = async () => {
+                                            const res = await customerService.search(values);
+                                            setCustomerList(res.data);
+                                        }
+                                        seacrhs()
+                                    }
+                                }>
                             <Form className="d-flex">
-                                <Field className="me-3" placeHolder="Tìm kiếm"/>
+                                <Field className="me-3 form-control" name="nameSearch" placeHolder="Tìm kiếm"/>
                                 <div>
-                                    <button className="btn btn-outline-info">Tìm</button>
+                                    <button type="submit" className="btn btn-outline-info">Tìm</button>
                                 </div>
                             </Form>
                         </Formik>

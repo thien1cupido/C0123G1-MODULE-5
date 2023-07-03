@@ -1,5 +1,15 @@
 import axios from "axios";
 
+export const search= async (values)=> {
+    console.log(values.data)
+    try {
+        return await axios.get(`http://localhost:8080/customerList?name_like=${values.nameSearch}`);
+    }catch (e) {
+        console.log(e);
+    }
+}
+
+
 export const deleteCustomer = async (id) => {
     try {
         await axios.delete("http://localhost:8080/customerList/" + id);

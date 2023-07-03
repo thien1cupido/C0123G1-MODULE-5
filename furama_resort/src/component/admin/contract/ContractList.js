@@ -34,8 +34,8 @@ export function ContractList() {
         setTotalPage(Math.ceil((res.headers['x-total-count']) / 5))
     }
     const handlePageClick = (event) => {
-        getContractAllPage(event.selected+1)
-        setTotalPage(+event.selected+1);
+        getContractAllPage(event.selected + 1)
+        setTotalPage(+event.selected + 1);
     }
     const [modalDelete, setModalDelete] = useState(false);
     const [deleteContract, setDeleteContract] = useState({
@@ -70,9 +70,21 @@ export function ContractList() {
                     </div>
                     <h1>Danh sách hợp đồng</h1>
                     <div className="d-flex align-items-center">
-                        <Formik>
+                        <Formik initialValues={{
+                            search: '',
+                        }}
+                                onSubmit={values => {
+                                    const searches= async ()=>{
+                                        const res=await contractService.search(values);
+                                        setContractList(res.data);
+                                    }
+                                    searches();
+                                }}
+                        >
                             <Form className="d-flex">
-                                <Field className="me-3" placeHolder="Tìm kiếm"/>
+                                <div className="d-flex">
+                                    <Field className="me-3 form-control" name="search" placeHolder="Tìm kiếm"/>
+                                </div>
                                 <div>
                                     <button className="btn btn-outline-info">Tìm</button>
                                 </div>

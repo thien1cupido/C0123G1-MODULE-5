@@ -42,3 +42,8 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+.border-form{
+    border-radius: 10px;
+    border: #3e3a3a solid 1px;
+    background: #f1f0f0;
+}
